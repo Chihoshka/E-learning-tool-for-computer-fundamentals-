@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Calculator</title>
+    <link rel="stylesheet" href="../data/css/bootstrap.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="binaryCalculator.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-primary">
+          <a class="navbar-brand" href="index.html">
+            <img src="../img/a.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Электронное средство обучения по основам вычислительной
+            техники
+          </a>
+          <a class="link" href="http://www.uoggmk.by/">GGMK</a>
+        </nav>
+      </header>
+      <nav>
+        <ul class="menu">
+            <li class="menu_item"><a href="../index.html" class="menu_link">Главная</a></li>
+            <li class="menu_item"><a href="../page/lesson.html" class="menu_link">Лекции</a></li>
+            <li class="menu_item"><a href="../page/instructions.html" class="menu_link">Инструкции</a></li>
+            <li class="menu_item"><a href="../page/control.html" class="menu_link">Контроль</a></li>
+            <li class="menu_item"><a href="../page/calculater.html" class="menu_calculater">Калькулятор</a></li>
+            
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Калькулятор двочных чисел</h2>
+        <div class="calc">
+            <div id="res"></div>
+        <div id="btns">
+            <button id="btn0" onclick="">0</button>
+           <button id="btn1">1</button> 
+           <button id="btnClr">C</button> 
+           <button id="btnEql">=</button> 
+           <button id="btnSum">+</button> 
+           <button id="btnSub">-</button> 
+           <button id="btnMul">*</button> 
+           <button id="btnDiv">/</button> 
+    
+        </div>
+        </div>
+            <br>
+        <br>
+            <h2>Перевод чисел...</h2>
+                <p>Введите число в десятичной системе счисления<br />
+                    для перевода в двоичную</p>
+            <form name="forml">
+                x=<input type="text" size=10 name="x"><br />
+                <br>
+                <input type="button" value="В двоичное">
+                <input type="reset" value=Oтменить><br />
+                <input type="text" name="Результат" size=70><br /><br />
+                <hr />
+                <p>Введите число в двоичной системе счисления<br />
+                    для перевода в десятичную</p>
+                y=<input type="text" size=10 name="y">
+                <br />
+                <input type="button" value="В десятичное">
+                <input type="reset" value="Oтменить"><br />
+                <input type="text" name="Результат2" size=70><br />
+         
+            </form>
+    </div>
+    <footer class="page-footer font-small " style="background-color: #e3f2fd;">
+        <div class="footer-copyright text-center py-3 footer">
+            © 2021 Разработал:
+          <a href="#"> Chihoshin N.S.</a>
+        </div>
+      </footer>
+    <script>
+        let buttons = document.querySelectorAll("[type=button]");
+ 
+        buttons[0].onclick = () => {
+            document.querySelector('[name="Результат"]').value
+                = perevod(document.querySelector('[name="x"]').value);
+        };
+ 
+        buttons[1].onclick = () => {
+            document.querySelector('[name="Результат2"]').value
+                = obratniyperevod(document.querySelector('[name="y"]').value);
+        };
+        // Десятичное число (строку) преобразовать в двоичное (строку)
+        function perevod(str) {
+            let num = 0;
+            for (let c of str) {
+                num = num * 10 + (c.charCodeAt(0) - 48);
+            }
+            let s = "", digit;
+            while (num) {
+                digit = num % 2;
+                s = (digit ? "1" : "0") + s;
+                num >>= 1;
+            }
+            return s || "0";
+        }
+ 
+        // Двоичное число (строку) преобразовать в десятичное (строку)
+        function obratniyperevod(str) {
+            let num = 0;
+            for (let c of str) {
+                num = (num << 1) + (c.charCodeAt(0) - 48);
+            }
+            let s = "", digit;
+            while (num) {
+                digit = num % 10;
+                s = String.fromCharCode(digit + 48) + s;
+                num = (num - digit) / 10;
+            }
+            return s || "0";
+        }
+    </script>
+    <script src="binaryCalculator.js"></script> 
+    <script src="../data/js/bootstrap.js"></script>  
+</body>
+</html>

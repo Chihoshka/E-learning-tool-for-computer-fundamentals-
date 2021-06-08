@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #000;
+  text-decoration: none;
+  list-style: none;
+}
+
+
+header .link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 19px;
+  transition: 0.7s;
+}
+
+header .link:hover {
+  color: rgb(216, 208, 208);
+  text-decoration: none;
+  font-size: 19px;
+  transition: 0.7s;
+}
+
+nav .menu {
+  padding: 7px;
+  display: flex;
+  background: #ecf2f7; 
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+nav .menu .menu_item a {
+  font-weight: bold;
+  padding: 10px;
+  color: #007BFF;
+}
+nav .menu .menu_item a {
+  display: inline-block;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+nav .menu .menu_item a:after {
+  background-color:#007BFF;
+  display: block;
+  content: "";
+  height: 1px;
+  width: 0%;
+  -webkit-transition: width .35s ease-in-out;
+  -moz--transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+  margin-top: 3px;
+}
+nav .menu .menu_item a:hover:after,
+nav .menu .menu_item a:focus:after {
+  width: 100%;
+}
+
+/* Слайдер */
+.slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: 87vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* стили для обёртки, в которой заключены слайды */
+.slider__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* стили для контейнера слайдов */
+.slider__items {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* стили для слайдов */
+.slider__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/*описание*/
+.slider_descr {
+    font-size: 60px; 
+    max-width: 900px;
+    margin: 0 auto;  
+    padding-top: 20vh;
+    transition: 0.5s;
+}
+.slider_link {
+    text-align: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 35px;
+    transition: 0.5s;
+    border-bottom: 2px solid #fff;
+    
+}
+.slider_link:hover {
+  text-decoration: none;
+  font-size: 40px;
+  color:#007BFF;
+  border-bottom: 2px solid #007BFF;
+  border: none;
+  transition: 0.5s;
+}
+
+/* стили для кнопок "вперед" и "назад" */
+.slider__control {
+  position: absolute;
+  top: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.25;
+  height: 50px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.slider__control_show {
+  display: flex;
+}
+
+.slider__control:hover,
+.slider__control:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  opacity: 0.8;
+}
+
+.slider__control_prev {
+  left: 0;
+}
+
+.slider__control_next {
+  right: 0;
+}
+
+.slider__control::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.slider__control_prev::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.slider__control_next::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+/* стили для индикаторов */
+.slider__indicators {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.slider__indicators li {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 4px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.slider__indicators li.active {
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+/* для стилизации текущего слайдера */
+.img-fluid {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+}
+
+footer a {
+  text-decoration: none;
+  color: #000;
+  transition: 0.7s;
+}
+footer a:hover {
+  transition: 0.7s;
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.cards .card_item{
+  padding: 15px;
+  width: 550px;
+}
+
+.cards .dropdown-menu a {
+  text-decoration: none;
+  padding: 15px;
+}
+
+.dropdown-menu {
+  width: 400px;
+  padding: 5px;
+}
+
+.cards .card_item_too {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.card_wrappers {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0 340px 0;
+  margin-left: 30px;
+}
+
+.cards .card_item_too a {
+  margin: 0 auto; 
+  color: #fff;
+  text-decoration: none;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
